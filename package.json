@@ -1,0 +1,29 @@
+{
+  "name": "mdc",
+  "version": "0.0.1",
+  "description": "Material design components for react.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "test",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sterlingfs/mdc.git"
+  },
+  "author": "Brady Sterling",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sterlingfs/mdc/issues"
+  },
+  "homepage": "https://github.com/sterlingfs/mdc#readme",
+  "dependencies": {
+    "material-components-web": "^8.0.0",
+    "react": "^17.0.1",
+    "typescript": "^4.0.5"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.56"
+  }
+}
