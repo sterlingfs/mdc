@@ -1,1 +1,2 @@
 
+declare const react: any

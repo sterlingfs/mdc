@@ -1,6 +1,6 @@
 {
-  "name": "mdc",
-  "version": "0.0.1",
+  "name": "@sterlingfs/mdc",
+  "version": "0.0.2",
   "description": "Material design components for react.js",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -19,11 +19,14 @@
   },
   "homepage": "https://github.com/sterlingfs/mdc#readme",
   "dependencies": {
-    "material-components-web": "^8.0.0",
+    "material-components-web": "^8.0.0"
+  },
+  "peerDependencies": {
     "react": "^17.0.1",
     "typescript": "^4.0.5"
   },
   "devDependencies": {
-    "@types/react": "^16.9.56"
+    "@types/react": "^16.9.56",
+    "react-scripts": "3.4.3"
   }
 }
