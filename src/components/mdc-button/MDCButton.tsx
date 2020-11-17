@@ -20,6 +20,12 @@ const buttonType = {
   raised: "mdc-button--raised",
 };
 
+const icon = (iconName: string) => (
+  <i className="material-icons mdc-button__icon" aria-hidden="true">
+    {iconName}
+  </i>
+);
+
 export function MDCButton(props: MDCButtonProps) {
   const rootRef = React.createRef<HTMLButtonElement>();
 
@@ -27,12 +33,6 @@ export function MDCButton(props: MDCButtonProps) {
     const el = rootRef.current;
     el && new MDCRipple(el);
   });
-
-  const icon = (iconName: string) => (
-    <i className="material-icons mdc-button__icon" aria-hidden="true">
-      {iconName}
-    </i>
-  );
 
   return (
     <div className="mdc-touch-target-wrapper">
