@@ -7,10 +7,10 @@ import "@material/button/dist/mdc.button.css";
 export function MDCButton() {
   const rootRef = React.createRef<HTMLDivElement>();
 
-  useEffect(() => {
-    const el = rootRef.current;
-    el && new MDCRipple(el);
-  });
+  // useEffect(() => {
+  //   const el = rootRef.current;
+  //   el && new MDCRipple(el);
+  // });
 
   return (
     <div ref={rootRef} className="mdc-touch-target-wrapper">
