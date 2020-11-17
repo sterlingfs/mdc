@@ -5,17 +5,17 @@ import { MDCRipple } from "@material/ripple";
 import "@material/button/dist/mdc.button.css";
 
 export type MDCButtonProps = {
-  title: string;
-  iconName: string;
-  type: keyof typeof buttonType;
-  trailingIcon: boolean;
-  disabled: boolean;
+  title?: string;
+  iconName?: string;
+  type?: keyof typeof buttonType;
+  trailingIcon?: boolean;
+  disabled?: boolean;
 
-  onClick: (ev: React.MouseEvent) => void;
+  onClick?: (ev: React.MouseEvent) => void;
 };
 
 const buttonType = {
-  normal: "mdc-button--outlined",
+  normal: "",
   outlined: "mdc-button--outlined",
   raised: "mdc-button--raised",
 };
@@ -27,6 +27,9 @@ const icon = (iconName: string) => (
 );
 
 export function MDCButton(props: MDCButtonProps) {
+  const type = props.type || "normal";
+  const onClick = props.onClick || (() => {});
+
   const rootRef = React.createRef<HTMLButtonElement>();
 
   useEffect(() => {
@@ -38,11 +41,9 @@ export function MDCButton(props: MDCButtonProps) {
     <div className="mdc-touch-target-wrapper">
       <button
         ref={rootRef}
-        className={`mdc-button mdc-button--touch ${
-          buttonType[props.type] || ""
-        }`}
+        className={`mdc-button mdc-button--touch ${buttonType[type]}`}
         disabled={props.disabled === true}
-        onClick={props.onClick}
+        onClick={onClick}
       >
         <div className="mdc-button__ripple"></div>
         {props.iconName && !props.trailingIcon && icon(props.iconName)}
