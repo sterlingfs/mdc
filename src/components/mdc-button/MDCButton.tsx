@@ -5,7 +5,7 @@ import { MDCRipple } from "@material/ripple";
 import "@material/button/dist/mdc.button.css";
 
 export type MDCButtonProps = {
-  title?: string;
+  title: string;
   iconName?: string;
   type?: keyof typeof buttonType;
   trailingIcon?: boolean;
@@ -30,17 +30,22 @@ export function MDCButton(props: MDCButtonProps) {
   const type = props.type || "normal";
   const onClick = props.onClick || (() => {});
 
-  const rootRef = React.createRef<HTMLButtonElement>();
+  const buttonElement = React.createRef<HTMLButtonElement>();
 
   useEffect(() => {
-    const el = rootRef.current;
-    el && new MDCRipple(el);
+    const el = buttonElement.current;
+    const controller = el && new MDCRipple(el);
+
+    if (controller)
+      return function cleanUp() {
+        controller?.destroy();
+      };
   });
 
   return (
     <div className="mdc-touch-target-wrapper">
       <button
-        ref={rootRef}
+        ref={buttonElement}
         className={`mdc-button mdc-button--touch ${buttonType[type]}`}
         disabled={props.disabled === true}
         onClick={onClick}
