@@ -6,6 +6,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "test",
+    "watch": "tsc --watch",
     "build": "tsc"
   },
   "repository": {
